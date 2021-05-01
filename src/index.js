@@ -1,17 +1,27 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import FirebaseContext from './context/firebase';
+import { firebase, FieldValue } from './lib/firebase'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    <FirebaseContext.Provider value={{ firebase, FieldValue }}>
+        <App />
+    </FirebaseContext.Provider>
+    , document.getElementById('root'));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Client side rendered app: react(Cra)
+    // -> database: firebase
+    // -> react-loading-skeleton
+    // tailwin
+// Architecture
+    // -> components
+    // -> constants
+    // -> context
+    // -> helpers
+    // -> Hooks
+    // -> lib (firebase is going to live here)
+    // -> pages
+    // -> services (firebase functions in here)
+    // -> styles (tailwind (app/tailwind))
